@@ -12,19 +12,19 @@
     margin:-1px
 }
 /* 공통 스타일 */
-.themeGreen{
+.accentBook{
     color:#abd375
 }
-.themeYellow{
+.accentNews{
     color:#e8ca58
 }
-.themeBrown{
+.accentBoard{
     color:#988574
 }
-.themeOrange{
+.accentFavorite{
     color:#eea60a
 }
-.themeBlue{
+.accentTwitter{
     color:#6aaee6
 }
 .sprite{

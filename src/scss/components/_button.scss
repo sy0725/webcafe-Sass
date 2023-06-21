@@ -1,68 +1,56 @@
 @use "./../utils" as *;
-// button
+
 .button {
-  appearance: none;
   border: 0;
-  background: $black;
-  color: $white;
-  @include paddingY(8px);
+  background: transparent;
   @include paddingX(16px);
   font-size: rem(14px);
+  border-radius: rem(4px);
 
-  &None {
-    appearance: none;
+  &--fill {
+    background: $brown;
+    color: $white;
+  }
+  &--outline {
+    color: $brown;
+    border: 1px solid currentColor;
+  }
+}
+
+// 햄버거 버튼
+.button--burger {
+  @include mobile {
+    background: transparent;
+    width: rem(36px);
+    height: rem(36px);
     border: 0;
     padding: 0;
-    background: transparent;
-  }
-
-  &--primary {
-    background: $brown;
-  }
-
-  // 햄버거 버튼
-  &--burger {
-    overflow: hidden;
-    width: rem(32px);
-    height: rem(32px);
-    position: relative;
+    @include pos;
+    top: rem(65px);
+    right: rem(20px);
 
     &BarTop,
     &BarMiddle,
     &BarBottom {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 25%;
-      border-radius: 6px;
       background: $white;
-      transition: all 200ms ease-in-out;
+      width: 100%;
+      height: 20%;
+      border-radius: rem(10px);
+      left: 0;
     }
 
     &BarTop {
-      top: 0;
+      @include posLeftTop;
     }
     &BarMiddle {
-      top: 50%;
-      transform: translateY(-50%);
+      @include posCenterY;
     }
     &BarBottom {
-      top: 100%;
-      transform: translateY(-100%);
+      @include posBottomY;
     }
+  }
 
-    &.is-active {
-      .button--burgerBarTop {
-        top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-      }
-      .button--burgerBarMiddle {
-        transform: translate(-120%, -50%);
-      }
-      .button--burgerBarBottom {
-        top: 50%;
-        transform: translateY(-50%) rotate(-45deg);
-      }
-    }
+  @include desktop {
+    display: none;
   }
 }
